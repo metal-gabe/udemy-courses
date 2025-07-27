@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "age": 100,
+      "name": "bllr"
+    },
+    {
+      "age": 123,
+      "name": "sloane",
+      "id": 2
+    },
+    {
+      "name": "Metal",
+      "age": 17,
+      "id": 3
+    },
+    {
+      "name": "Stephen Curry",
+      "age": 34,
+      "id": 4
+    },
+    {
+      "name": "Stephen Curry",
+      "age": 34,
+      "id": 5
+    }
+  ]
+}

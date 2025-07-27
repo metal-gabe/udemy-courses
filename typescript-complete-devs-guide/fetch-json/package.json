@@ -1,0 +1,21 @@
+{
+   "name": "fetch-json",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "prettier": {
+      "trailingComma": "all",
+      "tabWidth": 3,
+      "semi": true,
+      "singleQuote": true
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "axios": "^0.21.1"
+   }
+}
