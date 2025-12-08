@@ -1,0 +1,23 @@
+sudo: required
+services:
+   - docker
+
+before_install:
+   - docker build -t your-docker-id/react-test -f ./client/dev.Dockerfile ./client
+
+script:
+   - docker run your-docker-id/react-test npm test -- --coverage
+
+after_success:
+   - docker build -t your-docker-id/multi-client ./client
+   - docker build -t your-docker-id/multi-nginx ./nginx
+   - docker build -t your-docker-id/multi-server ./server
+   - docker build -t your-docker-id/multi-worker ./worker
+   # log into the docker CLI
+   - docker login -u $DOCKER_ID -p $DOCKER_PASSWORD # this makes sense as an easier way to log in
+   # - echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin # but he did this, why?
+   # push the images to docker hub
+   - docker push your-docker-id/multi-client
+   - docker push your-docker-id/multi-nginx
+   - docker push your-docker-id/multi-server
+   - docker push your-docker-id/multi-worker

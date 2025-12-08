@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: udemy
+  name: client-deployment
+  labels:
+    app: udemy-client-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: web # this label is used to identify the pods that belong to this deployment -- THESE NEED TO MATCH THE SELECTOR BELOW
+  template:
+    metadata:
+      labels:
+        component: web # this label is what the deployment uses to identify the pods that belong to it -- THESE NEED TO MATCH THE SELECTOR ABOVE
+    spec:
+      containers:
+        - name: client
+          image: stephengrider/multi-client
+          ports:
+            - containerPort: 3000 # this needs to map to the port that the nginx server listens on inside of the container
